@@ -10,10 +10,7 @@ url = "https://api.energidataservice.dk/dataset/Elspotprices?start="+str(today)+
 response = urlopen(url)
 data_json = json.loads(response.read())
 
-print(url)
-
 for d in data_json['records']:
-  #print(d['HourDK'], d['SpotPriceDKK'])
   UnitPrice = d['SpotPriceDKK']/1000
   RoundUP = str(round(UnitPrice, 2))
   print(d['HourDK'], RoundUP)
